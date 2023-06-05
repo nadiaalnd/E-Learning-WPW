@@ -12,6 +12,8 @@
     <title>
         <?= APP_NAME ?>
     </title>
+    <!-- x-icon-->
+    <link rel="shortcut icon" href="/assets/img/penswhite.png" type="image/x-icon">
 
     <!-- Custom fonts for this template-->
     <link href="<?= BASE_URL ?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

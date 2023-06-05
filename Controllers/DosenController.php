@@ -93,4 +93,51 @@ class DosenController extends BaseController
         $this->model->addTugas($data);
         echo "<script>alert('Tugas berhasil ditambahkan');window.location.href='/dosen/matkul/tugas/" . $this->req_post('matkul') . "';</script>";
     }
+
+    public function manage_matkul_tugas_edit($id)
+    {
+        $data = [
+            'assignment_name' => $this->req_post('nama'),
+            'deadline' => $this->req_post('deadline'),
+        ];
+        $this->loadModel('Assignment');
+        $this->model->editTugas($data, $id);
+        echo "<script>alert('Tugas berhasil diubah');window.location.href='/dosen/matkul/tugas/" . $this->req_post('matkul') . "';</script>";
+    }
+
+    public function manage_matkul_tugas_delete($id)
+    {
+        $this->loadModel('Assignment');
+        $this->model->deleteTugas($id);
+        echo "<script>alert('Materi berhasil dihapus');window.location.href='/dosen/matkul';</script>";
+    }
+
+
+    public function manage_matkul_tugas_submit($id)
+    {
+        $this->loadModel('Tugas');
+        $data = $this->model->dataPengumpulan($id);
+        $this->loadModel('Assignment');
+        $assignment = $this->model->getTugas('id', $id);
+        echo view()->render('main/dosen/manage-nilai', ['id' => $id, 'data' => $data, 'tugas' => $assignment]);
+    }
+
+    public function manage_matkul_tugas_download($path)
+    {
+        $this->loadModel('Tugas');
+        $data = $this->model->getTugas('id', $path);
+        $path = $data['file'];
+        fileHandle()->download(BASE_PATH . '/assets/uploads/tugas/' . $path);
+    }
+
+    public function manage_matkul_tugas_submit_nilai($id)
+    {
+        $data = [
+            'nilai' => $this->req_post('nilai'),
+        ];
+
+        $this->loadModel('Tugas');
+        $this->model->editTugas($data, $id);
+        echo "<script>alert('Nilai berhasil ditambahkan');window.location.href='/dosen/matkul';</script>";
+    }
 }

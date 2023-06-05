@@ -55,7 +55,6 @@ class Routing
         $result = preg_match($pattern, $url, $matches);
 
         if ($result) {
-            // Mengabaikan elemen pertama dalam $matches karena itu adalah keseluruhan pencocokan
             $params = array_slice($matches, 1);
         }
 

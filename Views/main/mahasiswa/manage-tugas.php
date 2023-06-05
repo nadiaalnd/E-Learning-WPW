@@ -20,10 +20,11 @@
                     <h5><b><?= $item['assignment_name'] ?></b></h5>
                     <p class="text-secondary">Deadline : <span class="text-primary"><?= Date('d/m/Y H:i:s', strtotime($item['deadline'])) ?></span></p>
                     <?php if ($item['file']) : ?>
-                        <p class="text-secondary">File : <span class="text-primary"><a href="/mahasiswa/matkul/tugas/download/<?= $item['id'] ?>">
+                        <p class="text-secondary">File : <span class="text-primary"><a href="/mahasiswa/matkul/tugas/download/<?= $item['submission_id'] ?>">
                                     <?= $item['file'] ?></a>
                             </span></p>
                     <?php endif ?>
+                    <p class="text-secondary">Nilai : <?= $item['nilai'] ?? 'Belum Dinilai' ?></p>
                     <p class="text-secondary">Status : <span class="text-primary"><?= ($item['file']) ? 'Sudah' : 'Belum' ?> Upload</span></p>
                     <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#upload<?= $item['id'] ?>">
                         Upload Tugas</button>
@@ -41,7 +42,7 @@
                     </div>
                     <div class="modal-body">
                         <form action="/mahasiswa/matkul/tugas/submit" method="POST" enctype="multipart/form-data">
-                            <input type="hidden" name="tugas" value="<?= $id ?>">
+                            <input type="hidden" name="tugas" value="<?= $item['id'] ?>">
                             <div class="form-group">
                                 <label for="file">File </label>
                                 <input type="file" class="form-control" id="file" name="file" placeholder="File">

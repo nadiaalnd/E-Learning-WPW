@@ -24,7 +24,8 @@
                     <p class="text-secondary">Deadline : <span class="text-primary"><?= Date('d/m/Y', strtotime($item['deadline'])) ?></span></p>
                     <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#edit<?= $item['id'] ?>">
                         Edit</button>
-                    <a href="/dosen/matkul/materi/delete-materi/<?= $item['id'] ?>" onclick="return confirm('Apakah anda yakin ingin menghapus materi ini?')" class="btn btn-danger btn-sm">Delete</a>
+                    <a href="/dosen/matkul/tugas/delete-tugas/<?= $item['id'] ?>" onclick="return confirm('Apakah anda yakin ingin menghapus materi ini?')" class="btn btn-danger btn-sm">Delete</a>
+                    <a href="/dosen/matkul/tugas/submit/<?= $item['id'] ?>" class="btn btn-info btn-sm">Nilai</a>
                 </div>
             </div>
         </div>
@@ -32,13 +33,13 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Tambah Materi</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Tugas</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="/dosen/matkul/tugas/create<?= $item['id'] ?>" method="POST" enctype="multipart/form-data">
+                        <form action="/dosen/matkul/tugas/edit/<?= $item['id'] ?>" method="POST" enctype="multipart/form-data">
                             <input type="hidden" name="matkul" value="<?= $id ?>">
                             <div class="form-group">
                                 <label for="nama">Nama Tugas</label>
@@ -63,7 +64,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Materi</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Tugas</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

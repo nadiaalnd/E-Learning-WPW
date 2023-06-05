@@ -45,10 +45,11 @@ class MahasiswaController extends BaseController
         echo view()->render('main/mahasiswa/manage-tugas', ['data' => $tugas, 'id' => $id, 'matkul' => $matkul]);
     }
 
-    public function manage_matkul_tugas_download($path)
+    public function manage_matkul_tugas_download($id)
     {
+
         $this->loadModel('Tugas');
-        $data = $this->model->getTugas('id', $path);
+        $data = $this->model->getTugas('id', $id);
         $path = $data['file'];
         fileHandle()->download(BASE_PATH . '/assets/uploads/tugas/' . $path);
     }
@@ -64,6 +65,6 @@ class MahasiswaController extends BaseController
         ];
         $this->loadModel('Tugas');
         $this->model->updateOrCreate($data);
-        echo "<script>alert('Tugas berhasil dikumpulkan');window.location.href='/mahasiswa/matkul/tugas/" . $this->req_post('tugas') . "';</script>";
+        echo "<script>alert('Tugas berhasil dikumpulkan');window.location.href='/mahasiswa/matkul/';</script>";
     }
 }

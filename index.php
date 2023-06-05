@@ -11,8 +11,6 @@ $routing->set('/login', 'AuthController', 'login', 'POST');
 $routing->set('/logout', 'AuthController', 'logout', 'GET');
 $routing->set('/dashboard', 'DashboardController', 'index', 'GET');
 
-$routing->set('/contoh','TestingController', 'inicontoh', 'GET');
-
 // Mahasiswa Routing
 $routing->set('/mahasiswa/matkul', 'MahasiswaController', 'manage_matkul_index', 'GET');
 $routing->set('/mahasiswa/matkul/materi/([0-9]+)', 'MahasiswaController', 'manage_matkul_materi', 'GET');
@@ -35,7 +33,7 @@ $routing->set('/dosen/matkul/tugas/edit/([0-9]+)', 'DosenController', 'manage_ma
 $routing->set('/dosen/matkul/tugas/delete-tugas/([0-9]+)', 'DosenController', 'manage_matkul_tugas_delete', 'GET');
 $routing->set('/dosen/matkul/tugas/submit/([0-9]+)', 'DosenController', 'manage_matkul_tugas_submit', 'GET');
 $routing->set('/dosen/matkul/tugas/submit/nilai/([0-9]+)', 'DosenController', 'manage_matkul_tugas_submit_nilai', 'POST');
-
+$routing->set('/dosen/matkul/tugas/download/([0-9]+)', 'DosenController', 'manage_matkul_tugas_download', 'GET');
 
 // Admin Routing
 $routing->set('/admin/manage-user', 'AdminController', 'manage_user_index', 'GET');

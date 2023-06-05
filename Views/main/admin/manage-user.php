@@ -15,7 +15,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Nrp</th>
+                            <th>NRP / NIP</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Role</th>
@@ -50,8 +50,8 @@
                                         <div class="modal-body">
                                             <form action="/admin/manage-user/edit/<?= $user['id'] ?>" method="POST">
                                                 <div class="form-group">
-                                                    <label for="nrp">NRP</label>
-                                                    <input type="text" class="form-control" id="nrp" name="nrp" placeholder="NRP" value="<?= $user['nrp'] ?>">
+                                                    <label for="nrp">NRP / NIP</label>
+                                                    <input type="text" class="form-control" id="nrp" name="nrp" placeholder="NRP / NIP" value="<?= $user['nrp'] ?>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="nrp">Name</label>
@@ -104,8 +104,8 @@
             <div class="modal-body">
                 <form action="/admin/manage-user/create" method="POST">
                     <div class="form-group">
-                        <label for="nrp">NRP</label>
-                        <input type="text" class="form-control" id="nrp" name="nrp" placeholder="NRP">
+                        <label for="nrp">NRP / NIP</label>
+                        <input type="text" class="form-control" id="nrp" name="nrp" placeholder="NRP / NIP">
                     </div>
                     <div class="form-group">
                         <label for="nrp">Name</label>
